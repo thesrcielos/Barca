@@ -87,7 +87,7 @@
 						<configuration>
 							<excludes>
 								<exclude>edu/eci/cvds/productAgent/ProductAgentApplication.**</exclude>
-								<exclude>edu/eci/cvds/productAgent/controller/ProductAgentController.**</exclude>
+								<exclude>edu/eci/cvds/productAgent/controller/**</exclude>
 							</excludes>
 						</configuration>
 					</execution>

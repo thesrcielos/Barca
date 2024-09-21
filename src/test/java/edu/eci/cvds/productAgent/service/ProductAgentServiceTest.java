@@ -39,6 +39,35 @@ public class ProductAgentServiceTest {
         ProductAgentService service = createService();
         assertNull(service.update("example-name",10));
     }
+
+    @Test
+    public void shouldntCreateAProductWithoutAName(){
+        ProductAgentService service = createService();
+        Product product = new Product(null, BigDecimal.valueOf(10),10,"electronic");
+        assertNull(service.add(product));
+    }
+
+    @Test
+    public void shouldntCreateAProductWithANegativeQuantity(){
+        ProductAgentService service = createService();
+        Product product = new Product("product", BigDecimal.valueOf(10),-10,"electronic");
+        assertNull(service.add(product));
+    }
+
+    @Test
+    public void deleteProductTest(){
+        ProductAgentService service = createService();
+        Product product = addProductToService(service);
+        service.delete(product.getName());
+        assertTrue(service.getAllProduct().isEmpty());
+    }
+
+    @Test
+    public void shouldntCreateAProductWithoutACategory(){
+        ProductAgentService service = createService();
+        Product product = new Product("product", BigDecimal.valueOf(10),10,null);
+        assertNull(service.add(product));
+    }
     private ProductAgentService createService(){
         Agent agentLog = new AgentLog();
         Agent agentWarning = new AgentWarning();

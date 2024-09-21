@@ -5,6 +5,7 @@ import edu.eci.cvds.productAgent.model.Product;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,6 +25,7 @@ public class ProductAgentServiceImpl implements ProductAgentService {
 
     @Override
     public Product add(Product product) {
+        if(!productOk(product)) return null;
         String name = product.getName();
         if(products.containsKey(name)){
             return  null;
@@ -34,6 +36,7 @@ public class ProductAgentServiceImpl implements ProductAgentService {
 
     @Override
     public Product update(String name, int quantity) {
+        if(quantity < 0) return null;
         if(!products.containsKey(name)) {
             return null;
         }
@@ -59,4 +62,27 @@ public class ProductAgentServiceImpl implements ProductAgentService {
         agentWarning.update(product);
     }
 
+    private boolean productOk(Product product){
+
+        if (product == null) return false;
+
+        String name = product.getName();
+        BigDecimal price = product.getPrice();
+        int quantity = product.getQuantity();
+        String category = product.getCategory();
+
+        if (!validateString(name) || !validateString(category)) {
+            return false;
+        }
+
+        if (quantity < 0) return false;
+
+        if (price.intValue() < 0) return false;
+
+        return true;
+    }
+
+    private boolean validateString(String param){
+        return param != null && !param.isEmpty();
+    }
 }
