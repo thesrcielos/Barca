@@ -8,6 +8,9 @@ import java.util.List;
 
 @Component
 @Getter
+/**
+ * AgentWarning warns when a product has less than 5 items in stock
+ */
 public class AgentWarning implements Agent{
     private List<String> agentMessages = new ArrayList<>();
     @Override

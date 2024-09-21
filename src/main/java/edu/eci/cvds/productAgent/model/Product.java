@@ -11,6 +11,9 @@ import java.math.BigDecimal;
 @Setter
 @AllArgsConstructor
 @ToString
+/**
+ * This class represents a product
+ */
 public class Product {
     private String name;
     private BigDecimal price;

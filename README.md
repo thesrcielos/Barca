@@ -1,6 +1,7 @@
 # Parcial primer corte
 ![image](./assets/diagrama.png)
 
+
 ## Patrón de diseño seleccionado
 
 El patrón de diseño seleccionado para implementar en este caso es Observer.
@@ -38,7 +39,8 @@ Ejemplo de la petición con un flujo normal:
 
 ![image](./assets/postcreate.png)
 
-Si falla algo dentro de la creación por la validación lo que se muestra en la respuesta de la peticion es null.
+Si falla algo dentro de la creación por la validación lo que se muestra en la respuesta de la peticion es null. Ejemplo:
+![image](./assets/createbad.png)
 
 ### updateProduct
 ### Path: /update
@@ -59,7 +61,9 @@ Ejemplo de la petición:
 
 ![image](./assets/delete.png)
 
-Si falla algo dentro de la creación por la validación lo que se muestra en la respuesta de la peticion es null.
+Si falla algo dentro de la creación por la validación lo que se muestra en la respuesta de la peticion es null. Ejemplo:
+
+![image](./assets/updatebad.png)
 
 
 ## Cobertura con jacoco

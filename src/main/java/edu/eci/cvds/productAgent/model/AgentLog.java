@@ -8,6 +8,9 @@ import java.util.List;
 
 @Component
 @Getter
+/**
+ * AgentLog shows the log of the updated products
+ */
 public class AgentLog implements Agent{
     private List<String> agentMessages = new ArrayList<>();
 

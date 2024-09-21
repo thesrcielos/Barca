@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.Map;
 
 @Service
+/**
+ * This class implements the necessary methods to make a service por the products
+ */
 public class ProductAgentServiceImpl implements ProductAgentService {
     private Map<String, Product> products;
     private final Agent agentLog;
